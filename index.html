@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Flexbox Playground @gustavoquinalha</title>
+  <link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+<div id="app">
+  <div class="container">
+    <div class="basis3">
+      <div class="container column">
+        <div>
+          <div class="">
+            <input type="text" step="50" v-model="height" placeholder="height: 100px" />
+          </div>
+          <br>
+          <div class="">
+            <input type="radio" id="row" name="row" v-model="direction" value="row">
+            <label for="row">flex-direction: row</label>
+          </div>
+          <div class="">
+            <input type="radio" id="row-reverse" name="row-reverse" v-model="direction" value="row-reverse">
+            <label for="row-reverse">flex-direction: row-reverse</label>
+          </div>
+          <div class="">
+            <input type="radio" id="column" name="column" v-model="direction" value="column">
+            <label for="column">flex-direction: column</label>
+          </div>
+          <div class="">
+            <input type="radio" id="column-reverse" name="column-reverse" v-model="direction" value="column-reverse">
+            <label for="column-reverse">flex-direction: column-reverse</label>
+          </div>
+
+
+          <br>
+
+          <div class="">
+            <input type="radio" id="wrap" name="wrap" v-model="wrap" value="wrap">
+            <label for="wrap">flex-wrap: wrap</label>
+          </div>
+          <div class="">
+            <input type="radio" id="nowrap" nowrap="wrap" v-model="wrap" value="nowrap">
+            <label for="nowrap">flex-wrap: nowrap</label>
+          </div>
+          <div class="">
+            <input type="radio" id="wrap-reverse" name="wrap-reverse" v-model="wrap" value="wrap-reverse">
+            <label for="wrap-reverse">flex-wrap: wrap-reverse</label>
+          </div>
+
+
+          <br>
+
+          <div class="">
+            <input type="radio" id="justify-start" name="justify-start" v-model="justify" value="justify-start">
+            <label for="justify-start">justify-content: flex-start</label>
+          </div>
+          <div class="">
+            <input type="radio" id="justify-center" name="justify-center" v-model="justify" value="justify-center" checked>
+            <label for="justify-center">justify-content: center</label>
+          </div>
+          <div class="">
+            <input type="radio" id="justify-end" name="justify-end" v-model="justify" value="justify-end">
+            <label for="justify-end">justify-content: flex-end</label>
+          </div>
+          <div class="">
+            <input type="radio" id="space-around" name="around" v-model="justify" value="justify-around">
+            <label for="space-around">justify-content: space-around</label>
+          </div>
+          <div class="">
+            <input type="radio" id="justify-between" name="justify" v-model="justify" value="justify-between">
+            <label for="justify-between">justify-content: space-between</label>
+          </div>
+
+          <br>
+
+          <div class="">
+            <input type="radio" id="align-start" name="align-start" v-model="align" value="align-start">
+            <label for="align-start">align-items: flex-start</label>
+          </div>
+          <div class="">
+            <input type="radio" id="align-center" name="align-center" v-model="align" value="align-center">
+            <label for="align-center">align-items: center</label>
+          </div>
+          <div class="">
+            <input type="radio" id="align-end" name="align-end" v-model="align" value="align-end">
+            <label for="align-end">align-items: flex-end</label>
+          </div>
+
+          <br>
+          <button @click="addNewItem">add item</button>
+          <button @click="reset">reset</button>
+          <div>
+            <input type="number" step="50" v-model="basis" placeholder="flex-basis: 100px" />{{basis + 'px'}}
+          </div>
+          <div>
+            <input type="number" v-model="grow" placeholder="flex-grow: 1" />{{grow}}
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="basis5 flex">
+      <div class="container example" v-bind:class="justify + ' ' + align + ' ' + wrap + ' ' + direction + ' '" v-bind:style="{ height: height}">
+        <div class="tey" v-bind:style="{ flex: grow + ' ' + basis + 'px'}" v-for="(x, index) in items">
+          <div class="container center full-width">
+            <div>{{index}}
+              <br>
+              <button v-on:click="items.splice(index, 1)">X</button>
+              <input type="number" step="50" v-model="basis" placeholder="flex-basis: 100px" style="width: 90%" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
