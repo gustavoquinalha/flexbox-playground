@@ -2,8 +2,8 @@ var app = new Vue({
   el: '#app',
   data: {
     height: '100vh',
-    justify: 'center',
-    align: 'center',
+    justify: 'justify-center',
+    align: 'align-center',
     wrap: 'wrap',
     wrap2: 'wrap2',
     direction: 'row',

@@ -74,6 +74,10 @@
             <input type="radio" id="justify-between" name="justify" v-model="justify" value="justify-between">
             <label for="justify-between">justify-content: space-between</label>
           </div>
+          <div class="">
+            <input type="radio" id="stretch" name="stretch" v-model="justify" value="stretch">
+            <label for="stretch">justify-content: stretch</label>
+          </div>
 
           <br>
 
@@ -109,7 +113,7 @@
           <div class="container center full-width">
             <div>{{index}}
               <br>
-              <button v-on:click="items.splice(index, 1)">X</button>
+              <button v-on:click="items.remove(index, 1)">X</button>
               <input type="number" step="50" v-model="basis" placeholder="flex-basis: 100px" style="width: 90%" />
             </div>
           </div>
